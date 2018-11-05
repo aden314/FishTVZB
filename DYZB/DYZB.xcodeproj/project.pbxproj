@@ -44,6 +44,9 @@
 		F61317412190733D001EA1E6 /* Live */ = {
 			isa = PBXGroup;
 			children = (
+				F613175821907B66001EA1E6 /* Model */,
+				F613175721907B5F001EA1E6 /* View */,
+				F613175621907B58001EA1E6 /* Controller */,
 				F61317472190755E001EA1E6 /* Live.storyboard */,
 			);
 			name = Live;
@@ -52,6 +55,9 @@
 		F613174221907345001EA1E6 /* Follow */ = {
 			isa = PBXGroup;
 			children = (
+				F613175B21907B7F001EA1E6 /* Model */,
+				F613175A21907B77001EA1E6 /* View */,
+				F613175921907B6C001EA1E6 /* Controller */,
 				F613174A21907575001EA1E6 /* Follow.storyboard */,
 			);
 			name = Follow;
@@ -64,10 +70,118 @@
 			name = Tools;
 			sourceTree = "<group>";
 		};
+		F613175021907AE7001EA1E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F613175121907AF9001EA1E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F613175221907B01001EA1E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F613175321907B2F001EA1E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F613175421907B39001EA1E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F613175521907B43001EA1E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F613175621907B58001EA1E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F613175721907B5F001EA1E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F613175821907B66001EA1E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F613175921907B6C001EA1E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F613175A21907B77001EA1E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F613175B21907B7F001EA1E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F613175C21907B86001EA1E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F613175D21907B8D001EA1E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F613175E21907B92001EA1E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		F6656C952190552C00C2B3B3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				F6A42174218F4E6A006926A7 /* Main.storyboard */,
+				F613175221907B01001EA1E6 /* Model */,
+				F613175121907AF9001EA1E6 /* View */,
+				F613175021907AE7001EA1E6 /* Controller */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -75,6 +189,9 @@
 		F6656C972190554F00C2B3B3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F613175521907B43001EA1E6 /* Model */,
+				F613175421907B39001EA1E6 /* View */,
+				F613175321907B2F001EA1E6 /* Controller */,
 				F613174421907546001EA1E6 /* Home.storyboard */,
 			);
 			name = Home;
@@ -83,6 +200,9 @@
 		F6656C9A2190557C00C2B3B3 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				F613175E21907B92001EA1E6 /* Model */,
+				F613175D21907B8D001EA1E6 /* View */,
+				F613175C21907B86001EA1E6 /* Controller */,
 				F613174D21907589001EA1E6 /* User.storyboard */,
 			);
 			name = User;
