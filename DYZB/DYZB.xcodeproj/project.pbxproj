@@ -33,6 +33,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F61317412190733D001EA1E6 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Live;
+			sourceTree = "<group>";
+		};
+		F613174221907345001EA1E6 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Follow;
+			sourceTree = "<group>";
+		};
+		F61317432190734D001EA1E6 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
 		F6656C952190552C00C2B3B3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -46,20 +67,6 @@
 			children = (
 			);
 			name = Home;
-			sourceTree = "<group>";
-		};
-		F6656C982190556800C2B3B3 /* Live */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Live;
-			sourceTree = "<group>";
-		};
-		F6656C992190557000C2B3B3 /* Follow */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Follow;
 			sourceTree = "<group>";
 		};
 		F6656C9A2190557C00C2B3B3 /* User */ = {
@@ -90,9 +97,10 @@
 			children = (
 				F6656C952190552C00C2B3B3 /* Main */,
 				F6656C972190554F00C2B3B3 /* Home */,
-				F6656C982190556800C2B3B3 /* Live */,
-				F6656C992190557000C2B3B3 /* Follow */,
+				F61317412190733D001EA1E6 /* Live */,
+				F613174221907345001EA1E6 /* Follow */,
 				F6656C9A2190557C00C2B3B3 /* User */,
+				F61317432190734D001EA1E6 /* Tools */,
 				F6A42170218F4E6A006926A7 /* AppDelegate.swift */,
 				F6A42177218F4E6B006926A7 /* Assets.xcassets */,
 				F6A42179218F4E6B006926A7 /* LaunchScreen.storyboard */,
