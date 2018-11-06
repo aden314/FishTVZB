@@ -9,6 +9,15 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    private let titleViewHeight:CGFloat = 40
+    
+    private lazy var pageTitleView:PageTitleView = {
+        let titleFrame = CGRect(x: 0, y: c_STATUS_BAR_HEIGHT+c_NAVIGATION_BAR_HEIGHT, width: c_SCREEN_WIDTH, height: titleViewHeight)
+        let titles = ["推荐","娱乐","游戏","趣玩"]
+        let titleView = PageTitleView(frame: titleFrame, titles: titles)
+        return titleView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +28,8 @@ class HomeViewController: UIViewController {
     private func setupUI(){
         //1. 设置 NavigationBar
         setupNavigationBar()
+        //2. 设置 TitleView
+        view.addSubview(pageTitleView)
     }
     
     private func setupNavigationBar(){
@@ -31,8 +42,6 @@ class HomeViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = logoButtonItem
         navigationItem.rightBarButtonItems = [myHistoryItem,searchItem,scanQRCodeItem]
-        
-        
     }
     
 }

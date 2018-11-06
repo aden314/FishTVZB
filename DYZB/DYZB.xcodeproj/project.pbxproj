@@ -13,6 +13,8 @@
 		F613174F21907589001EA1E6 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F613174D21907589001EA1E6 /* User.storyboard */; };
 		F613176021907C76001EA1E6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F613175F21907C76001EA1E6 /* HomeViewController.swift */; };
 		F6131763219084B5001EA1E6 /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6131762219084B5001EA1E6 /* UIBarButtonItem-Extension.swift */; };
+		F613176521917056001EA1E6 /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F613176421917056001EA1E6 /* PageTitleView.swift */; };
+		F6131767219171A3001EA1E6 /* CommonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6131766219171A3001EA1E6 /* CommonParameters.swift */; };
 		F6A42171218F4E6A006926A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A42170218F4E6A006926A7 /* AppDelegate.swift */; };
 		F6A42176218F4E6A006926A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6A42174218F4E6A006926A7 /* Main.storyboard */; };
 		F6A42178218F4E6B006926A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6A42177218F4E6B006926A7 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		F613174E21907589001EA1E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DYZB/Base.lproj/User.storyboard; sourceTree = "<group>"; };
 		F613175F21907C76001EA1E6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F6131762219084B5001EA1E6 /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
+		F613176421917056001EA1E6 /* PageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
+		F6131766219171A3001EA1E6 /* CommonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonParameters.swift; sourceTree = "<group>"; };
 		F6A4216D218F4E6A006926A7 /* DYZB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYZB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A42170218F4E6A006926A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6A42175218F4E6A006926A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				F6131761219083BE001EA1E6 /* Extensions */,
+				F6131766219171A3001EA1E6 /* CommonParameters.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 		F613175121907AF9001EA1E6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F613176421917056001EA1E6 /* PageTitleView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -330,6 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6131767219171A3001EA1E6 /* CommonParameters.swift in Sources */,
+				F613176521917056001EA1E6 /* PageTitleView.swift in Sources */,
 				F6A42171218F4E6A006926A7 /* AppDelegate.swift in Sources */,
 				F613176021907C76001EA1E6 /* HomeViewController.swift in Sources */,
 				F6131763219084B5001EA1E6 /* UIBarButtonItem-Extension.swift in Sources */,
@@ -521,7 +529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lee.DYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -540,7 +548,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lee.DYZB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
