@@ -13,10 +13,10 @@ class PageContentView: UIView,UICollectionViewDataSource {
     let C_COLLECTIONVIEW_CELL_ID = "CollectionCellID"
     
     private var subViewControllers:[UIViewController]
-    private var parentViewController:UIViewController
-    private lazy var collectionView:UICollectionView = {
+    private weak var parentViewController:UIViewController?
+    private lazy var collectionView:UICollectionView = {[weak self] in
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = self.bounds.size
+        layout.itemSize = (self?.bounds.size)!
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
@@ -30,7 +30,7 @@ class PageContentView: UIView,UICollectionViewDataSource {
         return collectionView
     }()
 
-    init(frame: CGRect,subViewControllers:[UIViewController],parentViewController:UIViewController) {
+    init(frame: CGRect,subViewControllers:[UIViewController], parentViewController:UIViewController?) {
         self.subViewControllers = subViewControllers
         self.parentViewController = parentViewController
         super.init(frame: frame)
@@ -43,7 +43,7 @@ class PageContentView: UIView,UICollectionViewDataSource {
     
     private func setupUI(){
         for subViewController in subViewControllers{
-            parentViewController.addChild(subViewController)
+            parentViewController?.addChild(subViewController)
         }
         self.addSubview(collectionView)
         collectionView.frame = self.bounds

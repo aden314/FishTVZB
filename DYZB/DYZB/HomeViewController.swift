@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
         return titleView
     }()
-    private lazy var pageContentView:PageContentView = {
+    private lazy var pageContentView:PageContentView = {[weak self] in
         let contentViewHeight:CGFloat = c_SCREEN_HEIGHT - c_STATUS_BAR_HEIGHT - c_NAVIGATION_BAR_HEIGHT - titleViewHeight
         let contentFrame = CGRect(x: 0, y: c_STATUS_BAR_HEIGHT + c_NAVIGATION_BAR_HEIGHT + titleViewHeight, width: c_SCREEN_WIDTH, height: contentViewHeight)
         var subViewControllers = [UIViewController]()
