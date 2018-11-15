@@ -8,12 +8,19 @@
 
 import UIKit
 
-class PageContentView: UIView,UICollectionViewDataSource {
+protocol PageContentViewDelegate:class {
+    func contentIndexChanged(withContentView: PageContentView, progress:CGFloat, sourceIndex:Int, targetIndex:Int)
+}
+
+class PageContentView: UIView,UICollectionViewDataSource,UICollectionViewDelegate {
    
     let C_COLLECTIONVIEW_CELL_ID = "CollectionCellID"
     
+    weak var delegate:PageContentViewDelegate?
+    private var isForbidScrollDelegate:Bool = false
     private var subViewControllers:[UIViewController]
     private weak var parentViewController:UIViewController?
+    private var startOffsetX:CGFloat = 0
     private lazy var collectionView:UICollectionView = {[weak self] in
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = (self?.bounds.size)!
@@ -27,6 +34,7 @@ class PageContentView: UIView,UICollectionViewDataSource {
         collectionView.bounces = false
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: C_COLLECTIONVIEW_CELL_ID)
+        collectionView.delegate = self
         return collectionView
     }()
 
@@ -64,5 +72,43 @@ class PageContentView: UIView,UICollectionViewDataSource {
         return cell
     }
     
+    func setCurrentContentIndex(_ currentIndex:Int){
+        isForbidScrollDelegate = true
+        let offsetX = CGFloat(currentIndex) * collectionView.frame.width
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isForbidScrollDelegate = false
+        self.startOffsetX = scrollView.contentOffset.x
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if isForbidScrollDelegate {return}
+        
+        var progress : CGFloat = 0
+        var sourceIndex: Int = 0
+        var targetIndex: Int = 0
+        
+        let currentOffsetX = scrollView.contentOffset.x
+        let scrollViewWidth = scrollView.bounds.width
+        
+        if currentOffsetX >= self.startOffsetX {
+            progress = currentOffsetX.truncatingRemainder(dividingBy: scrollViewWidth) / scrollViewWidth
+            sourceIndex = Int(currentOffsetX / scrollViewWidth)
+            targetIndex = (sourceIndex + 1) >= subViewControllers.count ? sourceIndex : (sourceIndex + 1)
+            if (currentOffsetX - startOffsetX) == scrollViewWidth {
+                progress = 1
+                targetIndex = sourceIndex
+            }
+        }else{
+            progress = 1 - currentOffsetX.truncatingRemainder(dividingBy: scrollViewWidth) / scrollViewWidth
+            targetIndex = Int(currentOffsetX / scrollViewWidth)
+            sourceIndex = targetIndex + 1
+        }
+        
+        delegate?.contentIndexChanged(withContentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+        
+    }
     
 }

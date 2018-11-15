@@ -8,14 +8,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    
+class HomeViewController: UIViewController ,PageTitleViewDelegate,PageContentViewDelegate {
+  
     private let titleViewHeight:CGFloat = 40
     
-    private lazy var pageTitleView:PageTitleView = {
+    private lazy var pageTitleView:PageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y: c_STATUS_BAR_HEIGHT+c_NAVIGATION_BAR_HEIGHT, width: c_SCREEN_WIDTH, height: titleViewHeight)
         let titles = ["推荐","娱乐","游戏","趣玩"]
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
+        titleView.delegate = self
         return titleView
     }()
     private lazy var pageContentView:PageContentView = {[weak self] in
@@ -28,6 +29,7 @@ class HomeViewController: UIViewController {
             subViewControllers.append(viewController)
         }
         let pageContentView = PageContentView(frame: contentFrame, subViewControllers: subViewControllers, parentViewController: self)
+        pageContentView.delegate = self
         return pageContentView
     }()
 
@@ -58,5 +60,15 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = logoButtonItem
         navigationItem.rightBarButtonItems = [myHistoryItem,searchItem,scanQRCodeItem]
     }
+    
+    func titleIndexChanged(withTitleViwe: PageTitleView, currentIndex index: Int) {
+        pageContentView.setCurrentContentIndex(index)
+    }
+    
+    func contentIndexChanged(withContentView: PageContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        pageTitleView.setCurrentTitleIndex(progress, sourceIndex, targetIndex)
+        print(progress)
+    }
+    
     
 }
