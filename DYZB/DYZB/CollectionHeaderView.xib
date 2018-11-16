@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="488" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fik-ur-LZ8">
+                    <rect key="frame" x="0.0" y="0.0" width="488" height="10"/>
+                    <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="9rN-nJ-MtA"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_header_hot" translatesAutoresizingMaskIntoConstraints="NO" id="g88-lV-RNC">
+                    <rect key="frame" x="10" y="15" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="jo4-XJ-MzS"/>
+                        <constraint firstAttribute="height" constant="30" id="nXb-6f-OpV"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="热门" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIB-6I-6To">
+                    <rect key="frame" x="45" y="19.5" width="35" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufk-D0-yV3">
+                    <rect key="frame" x="433" y="10" width="45" height="40"/>
+                    <state key="normal" title="更多 &gt;">
+                        <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="Ufk-D0-yV3" secondAttribute="trailing" constant="10" id="40u-wD-eo6"/>
+                <constraint firstItem="EIB-6I-6To" firstAttribute="leading" secondItem="g88-lV-RNC" secondAttribute="trailing" constant="5" id="7qN-k3-p81"/>
+                <constraint firstItem="g88-lV-RNC" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="10" id="NX9-9g-yRR"/>
+                <constraint firstItem="EIB-6I-6To" firstAttribute="centerY" secondItem="g88-lV-RNC" secondAttribute="centerY" id="QgS-fA-Kwu"/>
+                <constraint firstAttribute="bottom" secondItem="Ufk-D0-yV3" secondAttribute="bottom" id="Qu4-zi-Ney"/>
+                <constraint firstItem="fik-ur-LZ8" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="RF7-x1-xMW"/>
+                <constraint firstItem="g88-lV-RNC" firstAttribute="top" secondItem="fik-ur-LZ8" secondAttribute="bottom" constant="5" id="dBv-WO-aJy"/>
+                <constraint firstItem="fik-ur-LZ8" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="lb4-5G-wWS"/>
+                <constraint firstItem="Ufk-D0-yV3" firstAttribute="top" secondItem="fik-ur-LZ8" secondAttribute="bottom" id="ntJ-OM-LFf"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="fik-ur-LZ8" secondAttribute="trailing" id="qt3-Vw-WHS"/>
+                <constraint firstAttribute="bottom" secondItem="g88-lV-RNC" secondAttribute="bottom" constant="5" id="wF3-Oc-YaS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <point key="canvasLocation" x="184" y="97.151424287856074"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="home_header_hot" width="18" height="18"/>
+    </resources>
+</document>

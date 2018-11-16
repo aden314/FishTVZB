@@ -23,7 +23,8 @@ class HomeViewController: UIViewController ,PageTitleViewDelegate,PageContentVie
         let contentViewHeight:CGFloat = c_SCREEN_HEIGHT - c_STATUS_BAR_HEIGHT - c_NAVIGATION_BAR_HEIGHT - titleViewHeight
         let contentFrame = CGRect(x: 0, y: c_STATUS_BAR_HEIGHT + c_NAVIGATION_BAR_HEIGHT + titleViewHeight, width: c_SCREEN_WIDTH, height: contentViewHeight)
         var subViewControllers = [UIViewController]()
-        for _ in 0..<4{
+        subViewControllers.append(RecommendViewController())
+        for _ in 0..<3{
             let viewController = UIViewController()
             viewController.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
             subViewControllers.append(viewController)
