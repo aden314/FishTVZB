@@ -20,6 +20,7 @@ private let LJ_CELL_HEADER_ID = "CellHeaderID"
 
 class RecommendViewController: UIViewController {
     
+    private lazy var recommendViewModel = RecommendViewModel()
     private lazy var collectionView:UICollectionView = { [unowned self] in
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: LJ_ITEM_WIDTH, height: LJ_NORMAL_ITEM_HEIGHT)
@@ -41,6 +42,9 @@ class RecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        recommendViewModel.requestData {
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -52,29 +56,36 @@ extension RecommendViewController{
 
 extension RecommendViewController:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 12
+        return recommendViewModel.anchorGroups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {return 8}
-        return 4
+        return recommendViewModel.anchorGroups[section].anchors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let anchorModel = recommendViewModel.anchorGroups[indexPath.section].anchors[indexPath.item]
+        let cell:CollectionViewBaseCell
         
-        let cellId = indexPath.section == 1 ? LJ_PRETTY_CELL_ID : LJ_NORMAL_CELL_ID
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        if indexPath.section == 1{
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: LJ_PRETTY_CELL_ID, for: indexPath) as! CollectionViewPrettyCell
+        }else{
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: LJ_NORMAL_CELL_ID, for: indexPath) as! CollectionViewNormalCell
+        }
+        cell.anchor = anchorModel
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let cellHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LJ_CELL_HEADER_ID, for: indexPath)
+        let cellHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LJ_CELL_HEADER_ID, for: indexPath) as! CollectionHeaderView
+        cellHeaderView.group = recommendViewModel.anchorGroups[indexPath.section]
         return cellHeaderView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return indexPath.section == 1 ? CGSize(width: LJ_ITEM_WIDTH, height: LJ_PRETTY_ITEM_HEIGHT) : CGSize(width: LJ_ITEM_WIDTH, height: LJ_NORMAL_ITEM_HEIGHT)
     }
+
     
 }
 

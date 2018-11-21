@@ -91,6 +91,7 @@ class PageTitleView: UIView {
     
     @objc private func titleLabelClick(tabGesture: UITapGestureRecognizer){
         guard let currentLabel = tabGesture.view as? UILabel else {return}
+        if currentLabel.tag == currentLabelIndex {return}
         let oldLabel = titleLabels[currentLabelIndex]
         currentLabel.textColor = UIColor(RGBColorGourp: c_SELECT_TITLE_COLOR)
         oldLabel.textColor = UIColor(RGBColorGourp: c_NORMAL_TITLE_COLOR)

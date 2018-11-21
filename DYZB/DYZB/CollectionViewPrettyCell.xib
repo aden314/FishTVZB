@@ -13,14 +13,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionViewPrettyCell" customModule="DYZB" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="185" height="219"/>
+            <rect key="frame" x="0.0" y="0.0" width="185" height="221"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="185" height="219"/>
+                <rect key="frame" x="0.0" y="0.0" width="185" height="221"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmF-6Y-M6j">
-                        <rect key="frame" x="5" y="195" width="46" height="14"/>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmF-6Y-M6j">
+                        <rect key="frame" x="5" y="197" width="46" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="XKG-yx-vL9"/>
                         </constraints>
@@ -30,7 +30,7 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小马哥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJG-dD-2rH">
-                        <rect key="frame" x="10" y="174" width="170" height="16"/>
+                        <rect key="frame" x="10" y="176" width="170" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="C3c-qs-kqx"/>
                             <constraint firstAttribute="height" constant="16" id="jFx-sb-Aoc"/>
@@ -40,7 +40,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="live_cell_default_phone" translatesAutoresizingMaskIntoConstraints="NO" id="JfY-i7-ZsD">
-                        <rect key="frame" x="0.0" y="0.0" width="185" height="169"/>
+                        <rect key="frame" x="0.0" y="0.0" width="185" height="171"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="5"/>
@@ -48,30 +48,31 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234人在线" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlr-E8-Mn1">
-                        <rect key="frame" x="110" y="5" width="70" height="20"/>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82a-Iq-Bqq">
+                        <rect key="frame" x="115" y="5" width="65" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="GqE-dO-SPa"/>
-                            <constraint firstAttribute="width" constant="70" id="puX-ah-u3o"/>
+                            <constraint firstAttribute="height" constant="20" id="ACF-Wt-CDq"/>
+                            <constraint firstAttribute="width" constant="65" id="UPg-rq-rR7"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <state key="normal" title="123456在线" image="Image_online">
+                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
-                    </label>
+                    </button>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Xlr-E8-Mn1" secondAttribute="trailing" constant="5" id="4HG-pt-Mf1"/>
+                <constraint firstAttribute="trailing" secondItem="82a-Iq-Bqq" secondAttribute="trailing" constant="5" id="8BS-0a-Im0"/>
                 <constraint firstItem="AJG-dD-2rH" firstAttribute="top" secondItem="JfY-i7-ZsD" secondAttribute="bottom" constant="5" id="ALV-jl-rJQ"/>
-                <constraint firstItem="Xlr-E8-Mn1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="D1H-k3-ldr"/>
                 <constraint firstItem="JfY-i7-ZsD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NZK-4N-r1P"/>
+                <constraint firstItem="82a-Iq-Bqq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="OwC-11-sEO"/>
                 <constraint firstItem="WmF-6Y-M6j" firstAttribute="top" secondItem="AJG-dD-2rH" secondAttribute="bottom" constant="5" id="QtL-dV-Dpx"/>
                 <constraint firstItem="WmF-6Y-M6j" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="QvS-aX-FBB"/>
                 <constraint firstAttribute="trailing" secondItem="AJG-dD-2rH" secondAttribute="trailing" constant="5" id="Vw0-9q-HQo"/>
@@ -81,11 +82,18 @@
                 <constraint firstItem="JfY-i7-ZsD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xRd-Tb-e6p"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="185" height="219"/>
-            <point key="canvasLocation" x="-144.80000000000001" y="102.09895052473765"/>
+            <size key="customSize" width="185" height="221"/>
+            <connections>
+                <outlet property="locationButton" destination="WmF-6Y-M6j" id="uI7-al-Fu0"/>
+                <outlet property="mainImageView" destination="JfY-i7-ZsD" id="Npz-Fe-6Qi"/>
+                <outlet property="nicknameLabel" destination="AJG-dD-2rH" id="ZgV-UT-Xbr"/>
+                <outlet property="onlineButton" destination="82a-Iq-Bqq" id="6rK-sF-9Vn"/>
+            </connections>
+            <point key="canvasLocation" x="-100" y="79.610194902548727"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Image_online" width="16" height="16"/>
         <image name="ico_location" width="12" height="12"/>
         <image name="live_cell_default_phone" width="103.5" height="103.5"/>
     </resources>

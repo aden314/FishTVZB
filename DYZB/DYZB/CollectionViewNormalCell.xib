@@ -43,10 +43,10 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgu-eJ-y0l">
-                        <rect key="frame" x="104" y="87" width="86" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <state key="normal" title=" 12345人在线" image="Image_online"/>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgu-eJ-y0l">
+                        <rect key="frame" x="128" y="87" width="62" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <state key="normal" title=" 1234567" image="Image_online"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="斗鱼直播" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xj-UK-xUU">
                         <rect key="frame" x="5" y="89" width="45" height="14"/>
@@ -73,6 +73,12 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="195" height="137"/>
+            <connections>
+                <outlet property="mainImageView" destination="gyn-rK-FUL" id="FQE-ye-LsV"/>
+                <outlet property="nicknameLabel" destination="5Xj-UK-xUU" id="2hd-Rh-H38"/>
+                <outlet property="onlineButton" destination="Bgu-eJ-y0l" id="VM3-Vs-prA"/>
+                <outlet property="roomNameLabel" destination="hFs-kX-Zm7" id="yRs-5U-6cy"/>
+            </connections>
             <point key="canvasLocation" x="16.800000000000001" y="54.422788605697157"/>
         </collectionViewCell>
     </objects>

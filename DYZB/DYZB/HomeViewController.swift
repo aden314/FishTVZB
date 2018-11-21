@@ -68,7 +68,6 @@ class HomeViewController: UIViewController ,PageTitleViewDelegate,PageContentVie
     
     func contentIndexChanged(withContentView: PageContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
         pageTitleView.setCurrentTitleIndex(progress, sourceIndex, targetIndex)
-        print(progress)
     }
     
     

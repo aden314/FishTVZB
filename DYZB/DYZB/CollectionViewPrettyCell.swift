@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Kingfisher
 
-class CollectionViewPrettyCell: UICollectionViewCell {
+class CollectionViewPrettyCell: CollectionViewBaseCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var locationButton: UIButton!
+    
+    override var anchor:AnchorModel?{
+        didSet{
+            super.anchor = anchor
+            self.locationButton.titleLabel?.text = anchor?.anchor_city
+        }
     }
 
 }
