@@ -13,6 +13,8 @@ private let LJ_ITEM_WIDTH:CGFloat = (c_SCREEN_WIDTH - LJ_ITEM_MARGIN * 3) / 2
 private let LJ_NORMAL_ITEM_HEIGHT:CGFloat = LJ_ITEM_WIDTH * 3/4
 private let LJ_PRETTY_ITEM_HEIGHT:CGFloat = LJ_ITEM_WIDTH * 4/3
 private let LJ_CELL_HEADER_HEIGHT:CGFloat = 50
+private let LJ_CYCLE_VIEW_HEIGHT:CGFloat = c_SCREEN_WIDTH * 3/8
+private let LJ_GAME_VIEW_HEIGHT:CGFloat = 90
 
 private let LJ_NORMAL_CELL_ID = "NormalCellID"
 private let LJ_PRETTY_CELL_ID = "PrettyCellID"
@@ -32,26 +34,48 @@ class RecommendViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
-        collectionView.backgroundColor = UIColor.white
-        //collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: LJ_NORMAL_CELL_ID)
+        collectionView.backgroundColor = UIColor.white       
         collectionView.register(UINib(nibName: "CollectionViewNormalCell", bundle: nil), forCellWithReuseIdentifier: LJ_NORMAL_CELL_ID)
         collectionView.register(UINib(nibName: "CollectionViewPrettyCell", bundle: nil), forCellWithReuseIdentifier: LJ_PRETTY_CELL_ID)
         collectionView.register(UINib(nibName: "CollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: LJ_CELL_HEADER_ID)
         return collectionView }()
+    private lazy var cycleView:RecommendCycleView = {
+        let cycleView = RecommendCycleView.creatRecommendCycleView()
+        cycleView.frame = CGRect(x: 0, y: -(LJ_CYCLE_VIEW_HEIGHT + LJ_GAME_VIEW_HEIGHT), width:c_SCREEN_WIDTH, height: LJ_CYCLE_VIEW_HEIGHT)
+        return cycleView
+    }()
+    private lazy var gameView:RecommendGameView = {
+        let gameView = RecommendGameView.creatRecommendGameView()
+        gameView.frame = CGRect(x: 0, y: -LJ_GAME_VIEW_HEIGHT, width: c_SCREEN_WIDTH, height: LJ_GAME_VIEW_HEIGHT)
+        return gameView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        recommendViewModel.requestData {
-            self.collectionView.reloadData()
-        }
+        self.loadData()
     }
 }
 
 extension RecommendViewController{
     private func setupUI(){
         self.view.addSubview(collectionView)
+        collectionView.addSubview(cycleView)
+        collectionView.addSubview(gameView)
+        collectionView.contentInset = UIEdgeInsets(top: LJ_CYCLE_VIEW_HEIGHT+LJ_GAME_VIEW_HEIGHT, left: 0, bottom: 0, right: 0)
     }
+    
+    private func loadData(){
+        recommendViewModel.requestData {
+            self.collectionView.reloadData()
+            self.gameView.anchorGroups = self.recommendViewModel.anchorGroups
+        }
+        recommendViewModel.requestCycleViewData {
+            self.cycleView.cycleModels = self.recommendViewModel.cycleModels
+        }
+       
+    }
+    
 }
 
 extension RecommendViewController:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{

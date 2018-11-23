@@ -11,6 +11,9 @@ import UIKit
 class RecommendViewModel{
     
     lazy var anchorGroups:[AnchorGroup] = [AnchorGroup]()
+    lazy var cycleModels:[CycleModel] = [CycleModel]()
+    private lazy var bigDataGroup = AnchorGroup(tagName: "热门", iconName: "home_header_hot")
+    private lazy var prettyGroup = AnchorGroup(tagName: "颜值", iconName: "home_header_phone")
     
 }
 
@@ -24,8 +27,6 @@ extension RecommendViewModel{
         let bigDataRoomURL = "http://capi.douyucdn.cn/api/v1/getBigDataRoom"
         let patameters = ["limit":"4","offset":"0"]
         
-        let bigDataGroup = AnchorGroup(tagName: "热门", iconName: "home_header_hot")
-        let prettyGroup = AnchorGroup(tagName: "颜值", iconName: "home_header_phone")
         
         let dispatchGroup = DispatchGroup()
         
@@ -37,7 +38,7 @@ extension RecommendViewModel{
                 if let dataArray = resultDict["data"] as? [[String:Any]]{
                     dataArray.forEach({ (dict) in
                         let anchor = AnchorModel(dict: dict)
-                        bigDataGroup.anchors.append(anchor)
+                        self.bigDataGroup.anchors.append(anchor)
                     })
                 }
             }
@@ -51,7 +52,7 @@ extension RecommendViewModel{
                 if let dataArray = resultDict["data"] as? [[String:Any]]{
                     dataArray.forEach({ (dict) in
                         let anchor = AnchorModel(dict: dict)
-                        prettyGroup.anchors.append(anchor)
+                        self.prettyGroup.anchors.append(anchor)
                     })
                 }
             }
@@ -72,10 +73,27 @@ extension RecommendViewModel{
             dispatchGroup.leave()
         }
         dispatchGroup.notify(queue: DispatchQueue.main) {
-            self.anchorGroups.insert(prettyGroup, at: 0)
-            self.anchorGroups.insert(bigDataGroup, at: 0)
+            self.anchorGroups.insert(self.prettyGroup, at: 0)
+            self.anchorGroups.insert(self.bigDataGroup, at: 0)
             finishedCallBack()
         }
+    }
+    
+    func requestCycleViewData(finishedCallBack:@escaping ()->()){
+        let slideURL = "http://capi.douyucdn.cn/api/v1/slide/6"
+        let parameters = ["version":"2.300"]
+        
+        NetworkTool.requestJSON(URLString: slideURL,method:HTTPMethodType.get,  parameters: parameters) { (result) in
+            if let resultDict = result as? [String:Any]{
+                if let dataArray = resultDict["data"] as? [[String:Any]]{
+                    dataArray.forEach({ (dict) in
+                        self.cycleModels.append(CycleModel(dict: dict))
+                        finishedCallBack()
+                    })
+                }
+            }
+        }
+        
     }
    
 }

@@ -33,6 +33,28 @@ extension NetworkTool{
                 finishedCallBack(json)
             }
         }
+        
+    }
+    
+    class func requestJSON(URLString:String,method:HTTPMethodType, parameters:[String:Any]? = nil, finishedCallBack: @escaping (_ result:Any?)->()){
+        
+        var rquestMethodType:HTTPMethod
+        
+        switch method {
+        case .get:
+            rquestMethodType = HTTPMethod.get
+        case .post:
+            rquestMethodType = HTTPMethod.post
+        default:
+            rquestMethodType = HTTPMethod.get
+        }
+        
+        Alamofire.request(URLString, method: rquestMethodType, parameters: parameters).responseJSON { (response) in
+            if let json = response.result.value{
+                finishedCallBack(json)
+            }
+        }
+        
     }
     
     
