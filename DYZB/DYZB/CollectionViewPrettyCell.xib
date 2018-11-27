@@ -49,14 +49,13 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82a-Iq-Bqq">
-                        <rect key="frame" x="115" y="5" width="65" height="20"/>
+                        <rect key="frame" x="119" y="5" width="61" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="ACF-Wt-CDq"/>
-                            <constraint firstAttribute="width" constant="65" id="UPg-rq-rR7"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <state key="normal" title="123456在线" image="Image_online">
+                        <state key="normal" title="1234在线" image="Image_online">
                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <userDefinedRuntimeAttributes>

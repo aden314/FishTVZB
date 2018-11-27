@@ -13,16 +13,9 @@ private let LJ_INSET_MARGIN:CGFloat = 10
 
 class RecommendGameView: UIView {
     
-    var anchorGroups:[AnchorGroup]?{
+    var groups:[BaseGameModel]?{
         didSet{
-            anchorGroups?.remove(at: 0)
-            anchorGroups?.remove(at: 0)
-            
-            let moreGroup = AnchorGroup(tagName: "更多", iconName: "")
-            anchorGroups?.append(moreGroup)
-            
             self.collectionView.reloadData()
-            
         }
     }
     
@@ -45,12 +38,13 @@ extension RecommendGameView{
 
 extension RecommendGameView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return anchorGroups?.count ?? 0
+        return groups?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LJ_GAME_VIEW_CELL, for: indexPath) as! CollectionGameCell
-        cell.anchorGroup = anchorGroups?[indexPath.item]
+        cell.baseGameModel = groups?[indexPath.item]
+//        cell.baseGameModel = anchorGroups?[indexPath.item]
         return cell
     }
     

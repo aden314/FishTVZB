@@ -14,7 +14,7 @@ class HomeViewController: UIViewController ,PageTitleViewDelegate,PageContentVie
     
     private lazy var pageTitleView:PageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y: c_STATUS_BAR_HEIGHT+c_NAVIGATION_BAR_HEIGHT, width: c_SCREEN_WIDTH, height: titleViewHeight)
-        let titles = ["推荐","娱乐","游戏","趣玩"]
+        let titles = ["推荐","游戏","娱乐","趣玩"]
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
         titleView.delegate = self
         return titleView
@@ -24,9 +24,11 @@ class HomeViewController: UIViewController ,PageTitleViewDelegate,PageContentVie
         let contentFrame = CGRect(x: 0, y: c_STATUS_BAR_HEIGHT + c_NAVIGATION_BAR_HEIGHT + titleViewHeight, width: c_SCREEN_WIDTH, height: contentViewHeight)
         var subViewControllers = [UIViewController]()
         subViewControllers.append(RecommendViewController())
+        subViewControllers.append(GameViewController())
+        subViewControllers.append(AmuseViewController())
         for _ in 0..<3{
             let viewController = UIViewController()
-            viewController.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
+            viewController.view.backgroundColor = UIColor.getRandomColor()
             subViewControllers.append(viewController)
         }
         let pageContentView = PageContentView(frame: contentFrame, subViewControllers: subViewControllers, parentViewController: self)

@@ -19,10 +19,10 @@ class CollectionViewBaseCell: UICollectionViewCell {
         didSet{
             if let anchorModel = anchor{
                 self.nicknameLabel.text = anchorModel.nickname
-                self.onlineButton.titleLabel?.text = anchorModel.online.changeToChineseCountString()
+                self.onlineButton.setTitle(anchorModel.online.changeToChineseCountString(), for: UIControl.State.normal)
                 self.mainImageView.kf.setImage(with: URL(string: anchorModel.vertical_src),placeholder: UIImage(named: "Img_default"))
+               
             }
         }
     }
-    
 }

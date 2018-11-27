@@ -15,13 +15,24 @@ class CollectionGameCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var anchorGroup:AnchorGroup?{
+//    var anchorGroup:AnchorGroup?{
+//        didSet{
+//            if let group = anchorGroup{
+//                self.titleLabel.text = group.tag_name
+//                self.iconImageView.kf.setImage(with: URL(string: group.icon_url),placeholder:UIImage(named: "home_more_btn"))
+//            }
+//        }
+//    }
+    
+    var baseGameModel:BaseGameModel?{
         didSet{
-            if let group = anchorGroup{
-                self.titleLabel.text = group.tag_name
-                self.iconImageView.kf.setImage(with: URL(string: group.icon_url),placeholder:UIImage(named: "home_more_btn"))
+            if let gameModel = baseGameModel{
+                self.titleLabel.text = gameModel.tag_name
+                self.iconImageView.kf.setImage(with: URL(string: gameModel.icon_url),placeholder:UIImage(named: "home_more_btn"))
             }
         }
     }
+    
+    
 
 }

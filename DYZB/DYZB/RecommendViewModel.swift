@@ -8,13 +8,10 @@
 
 import UIKit
 
-class RecommendViewModel{
-    
-    lazy var anchorGroups:[AnchorGroup] = [AnchorGroup]()
+class RecommendViewModel:BaseViewModel{
     lazy var cycleModels:[CycleModel] = [CycleModel]()
     private lazy var bigDataGroup = AnchorGroup(tagName: "热门", iconName: "home_header_hot")
     private lazy var prettyGroup = AnchorGroup(tagName: "颜值", iconName: "home_header_phone")
-    
 }
 
 // 网络请求
@@ -27,9 +24,7 @@ extension RecommendViewModel{
         let bigDataRoomURL = "http://capi.douyucdn.cn/api/v1/getBigDataRoom"
         let patameters = ["limit":"4","offset":"0"]
         
-        
         let dispatchGroup = DispatchGroup()
-        
         
         //1. 请求0推荐内容
         dispatchGroup.enter()
@@ -61,17 +56,20 @@ extension RecommendViewModel{
         
         //3. 请求2-12游戏内容
         dispatchGroup.enter()
-        NetworkTool.requestJSON(URLString:hotCateURL,parameters: patameters) { (result) in
-            if let resultDict = result as? [String:Any] {
-                if let dataArray = resultDict["data"] as? [[String:Any]]{
-                    dataArray.forEach({ (dict) in
-                        let group = AnchorGroup(dict:dict)
-                        self.anchorGroups.append(group)
-                    })
-                }
-            }
+        requestAnchorData(url: hotCateURL,parameters: patameters) {
             dispatchGroup.leave()
         }
+//        NetworkTool.requestJSON(URLString:hotCateURL,parameters: patameters) { (result) in
+//            if let resultDict = result as? [String:Any] {
+//                if let dataArray = resultDict["data"] as? [[String:Any]]{
+//                    dataArray.forEach({ (dict) in
+//                        let group = AnchorGroup(dict: dict)
+//                        self.anchorGroups.append(group)
+//                    })
+//                }
+//            }
+//            dispatchGroup.leave()
+//        }
         dispatchGroup.notify(queue: DispatchQueue.main) {
             self.anchorGroups.insert(self.prettyGroup, at: 0)
             self.anchorGroups.insert(self.bigDataGroup, at: 0)
@@ -88,12 +86,14 @@ extension RecommendViewModel{
                 if let dataArray = resultDict["data"] as? [[String:Any]]{
                     dataArray.forEach({ (dict) in
                         self.cycleModels.append(CycleModel(dict: dict))
-                        finishedCallBack()
                     })
+                     finishedCallBack()
                 }
             }
         }
         
     }
+    
+    
    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnchorGroup: NSObject {
+class AnchorGroup: BaseGameModel {
     
     @objc var room_list: [[String:Any]]?{
         didSet{
@@ -19,22 +19,7 @@ class AnchorGroup: NSObject {
             }
         }
     }
-    @objc var tag_name = ""
-    @objc var icon_url = ""
-    var icon_name = "home_header_normal"
+    
     lazy var anchors:[AnchorModel] = [AnchorModel]()
-    
-    init(tagName:String,iconName:String){
-        self.tag_name = tagName
-        self.icon_name = iconName
-    }
-    
-    init(dict: [String:Any]) {
-        super.init()
-        setValuesForKeys(dict)
-    }
-    
-    override func setValue(_ value: Any?, forUndefinedKey key: String) {
-    }
-    
+ 
 }
